@@ -81,15 +81,15 @@ function draw() {
     // collect the treasure when boy touches it
     if (cashG.isTouching(boy)) {
       cashG.destroyEach();
-      treasureCollection = treasureCollection + 50
+      treasureCollection = treasureCollection + 10
     }
     else if (diamondsG.isTouching(boy)) {
       diamondsG.destroyEach();
-       treasureCollection = treasureCollection + 200
+       treasureCollection = treasureCollection + 100
       
     }else if(jwelleryG.isTouching(boy)) {
       jwelleryG.destroyEach();
-      treasureCollection = treasureCollection + 100
+      treasureCollection = treasureCollection + 50
       
     }
     else{
@@ -139,7 +139,7 @@ function createCash() {
   var cash = createSprite(Math.round(random(50, 350),40, 10, 10));
   cash.addImage(cashImg);
   cash.scale=0.12;
-  cash.velocityY = 3;
+  cash.velocityY = (treasureCollection/100+3);
   cash.lifetime = 150;
   cashG.add(cash);
   }
